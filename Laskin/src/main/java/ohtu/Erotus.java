@@ -5,6 +5,7 @@ import javax.swing.JTextField;
 public class Erotus implements Komento {
     private Sovelluslogiikka sovellus;
     private JTextField tuloskentta, syotekentta;
+    private int arvo;
 
     public Erotus(Sovelluslogiikka sovellus, JTextField tuloskentta, JTextField syotekentta) {
         this.sovellus = sovellus;
@@ -13,7 +14,6 @@ public class Erotus implements Komento {
     }
 
     public void suorita() {
-        int arvo = 0;
         try {
             arvo = Integer.parseInt(syotekentta.getText());
         } catch (Exception e) {
@@ -23,6 +23,7 @@ public class Erotus implements Komento {
     }
 
     public void peru() {
-
+        sovellus.plus(arvo);
+        tuloskentta.setText("" + sovellus.tulos());
     }
 }

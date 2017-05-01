@@ -5,6 +5,7 @@ import javax.swing.JTextField;
 public class Summa implements Komento {
     private Sovelluslogiikka sovellus;
     private JTextField tuloskentta, syotekentta;
+    private int arvo;
 
     public Summa(Sovelluslogiikka sovellus, JTextField tuloskentta, JTextField syotekentta) {
         this.sovellus = sovellus;
@@ -13,7 +14,6 @@ public class Summa implements Komento {
     }
 
     public void suorita() {
-        int arvo = 0;
         try {
             arvo = Integer.parseInt(syotekentta.getText());
         } catch (Exception e) {
@@ -23,6 +23,7 @@ public class Summa implements Komento {
     }
 
     public void peru() {
-
+        sovellus.miinus(arvo);
+        tuloskentta.setText("" + sovellus.tulos());
     }
 }
